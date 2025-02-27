@@ -3,9 +3,11 @@ import time
 import sys
 import curses
 
-# setup
+# curses setup
 win=curses.initscr()
-pad=curses.newpad(13,65)
+win.refresh()
+pad=win.subwin(12,70)
+pad.refresh()
 
 # classes
 class buffer(object):
@@ -13,18 +15,17 @@ class buffer(object):
 		self.lines = {0:"" ,1:"" ,2:"" ,3:"" ,4:"" ,5:"" ,6:"" ,7:"" ,8:"" }
 
 	def print_lines(self):
-		for i in self.lines:
-			#pad.addstr(y+1,1,self.lines[y])
-			print(self.lines[i])
-			#y+=1
-		#pad.refresh(1,1,1,1,12,64,)
-		#pad.overwrite(win,1,1)
-		#win.refresh()
-		#del(y)
+		y=1
+		for y in self.lines:
+			pad.addstr(y,1,self.lines[y])
+			y+=1
+		del(y)
+		pad.refresh()
+		pad.clear()
 
-	def clean(self):
-		for i in self.lines:
-			self.lines[i] = ""
+	#def clean(self):
+	#	for i in self.lines:
+	#		self.lines[i] = ""
 
 class large_number:
 	def __init__(self,n):
@@ -114,7 +115,7 @@ def main(argv):
 		print("\033[1;31m")
 		buf.print_lines()
 		print("\033[0m")
-		buf.clean()
+		#buf.clean()
 
 # code
 if __name__ == '__main__':
