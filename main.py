@@ -17,6 +17,7 @@ class buffer(object):
 	def print_lines(self):
 		y=1
 		for y in self.lines:
+			#print(self.lines[y])
 			pad.addstr(y,1,self.lines[y])
 			y+=1
 		del(y)
