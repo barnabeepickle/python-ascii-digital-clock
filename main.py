@@ -17,8 +17,8 @@ class buffer(object):
 	def print_lines(self):
 		y=1
 		for y in self.lines:
-			#print(self.lines[y])
 			pad.addstr(y,1,self.lines[y])
+			#print(self.lines[y])
 			y+=1
 		del(y)
 		pad.refresh()
@@ -61,7 +61,7 @@ def get_big_chars():
 def new_separator():
 	global buf
 	for i in buf.lines:
-		buf.lines[i] += " "
+		buf.lines[i]+=' '
 
 def load_to_buf(time_str): 
 	global buf
@@ -120,5 +120,4 @@ def main(argv):
 
 # code
 if __name__ == '__main__':
-	print()
 	main(sys.argv)
