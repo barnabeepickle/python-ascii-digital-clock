@@ -1,11 +1,6 @@
 # imports
 import time
 import sys
-import curses
-
-# setup
-win=curses.initscr()
-pad=curses.newpad(13,65)
 
 # classes
 class buffer(object):
@@ -14,13 +9,7 @@ class buffer(object):
 
 	def print_lines(self):
 		for i in self.lines:
-			#pad.addstr(y+1,1,self.lines[y])
 			print(self.lines[i])
-			#y+=1
-		#pad.refresh(1,1,1,1,12,64,)
-		#pad.overwrite(win,1,1)
-		#win.refresh()
-		#del(y)
 
 	def clean(self):
 		for i in self.lines:
