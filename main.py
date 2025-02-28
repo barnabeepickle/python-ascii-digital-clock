@@ -30,11 +30,11 @@ class large_number:
 # functions
 def get_big_chars():
 	global big_chars
-	digits=open("digits.txt","r")
-	dig_in = digits.read().split('\n')
-	curr = 0
-	j = 0
-	big_chars = {}
+	with open('digits.txt') as digits:
+		dig_in=digits.read().split('\n')
+	curr=0
+	j=0
+	big_chars={}
 	for i in dig_in:
 		if i[:1] == "-":
 			curr = i[1:]
